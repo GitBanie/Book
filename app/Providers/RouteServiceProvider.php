@@ -23,7 +23,10 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Vérification des parametre de l'url
+
+        Route::pattern('id', '[1-9][0-9]*');
+        //On peut donc enlever les wheres des routes qu'on n'a mis auparavant 
 
         parent::boot();
     }

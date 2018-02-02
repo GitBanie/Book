@@ -29,3 +29,13 @@ Route::get('author/{id}','FrontController@showBookByAuthor')->where(['id' => '[0
 Route::get('genre/{id}','FrontController@showBookByGenre')->where(['id' => '[0-9]+']);
 
 Route::post('vote/','FrontController@create')->name('vote');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+// route sécuriser
+
+//Controlleur de ressource
+
+Route::resource('admin/book', 'BookController')->middleware('auth');

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>Book</title>
 
@@ -17,6 +18,7 @@
     <style media="screen">
       body {
             padding-top: 54px;
+            font-size: 1.3rem;
           }
 
           @media (min-width: 992px) {
@@ -45,8 +47,13 @@
 
 
     <!-- Bootstrap core JavaScript -->
-    <script src="{{asset('js/jquery.min.js')}}"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <!-- Ici le show, au lieu de fermer la section, on dit que c'est le contenu par default de la section('scripts')
+    Si un autre blade fait appel a cette meme section alors il supprimera le contenu et le remplacera par le sien
+    Si on veux garder le contenu du 'parent' on fait un @parent lors de l'utilisation de cette section dans
+    un autre blade / Voir exemple dans index.blade.php -->
+    @section('scripts')
+    <script src="{{asset('js/app.js')}}"></script>
+    @show
   </body>
 
 </html>

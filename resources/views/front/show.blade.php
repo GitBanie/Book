@@ -4,7 +4,7 @@
 @if($book->count())
 <!-- Blog Post -->
 <div class="card mb-4" style="margin-top:20px">
-  @if($book->picture->count())
+  @if($book->picture->count() > 0)
   <img class="card-img-top" src="{{asset('images/'.$book->picture->link)}}" alt="{{$book->picture->title}}">
   @endif
   <div class="card-body">
@@ -54,8 +54,9 @@
     @empty
     <small>Aucun auteur</small>
     @endforelse
-    @if($book->score->count())
+    @if($book->score->count() > 0)
     <span>Score de {{$book->score->pluck('vote')->slice(0, 2)->avg()}} sur 5</span>
+    <span><b>({{$book->score->count()}})</b></span>
     @endif
   </div>
 </div>

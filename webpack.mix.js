@@ -12,6 +12,7 @@ let mix = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
+   .js('resources/assets/js/confirm.js', 'public/js') //Ajout d'un fichier à compiler
    .sass('resources/assets/sass/app.scss', 'public/css')
    .browserSync({
   			// pour faire fonctionner debug bar + npm run watch
@@ -22,5 +23,11 @@ mix.js('resources/assets/js/app.js', 'public/js')
                     host: 'localhost:3000'
                 };
             }
-        }
+        },
+        files: [
+            'app/**/*.php',
+            'resources/views/**/*.php',
+            'public/assets/js/**/*.js',
+            'public/assets/css/**/*.css'
+        ]
     });

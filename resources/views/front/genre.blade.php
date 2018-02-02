@@ -3,7 +3,7 @@
 @section('content')
 
 <h1 class="my-4">Tous les livres de {{$genre->name}} </h1>
-@if($books->count())
+@if(isset($books))
   <!-- Pagination utilisant le template de bootstrap4 -->
   {!!$books->links('vendor.pagination.bootstrap-4');!!}
     <!-- Boucle comme le foreach sauf qu'on peut gerer le cas ou il n'y a pas de valeur -->
@@ -12,7 +12,7 @@
     <article>
       <div class="card mb-4">
         <!-- On test s'il existe un enregistrement -->
-        @if($book->picture->count())
+        @if(isset($book->picture))
         <img class="card-img-top" src="{{asset('images/'.$book->picture->link)}}" alt="{{$book->picture->title}}">
         @endif
         <div class="card-body">

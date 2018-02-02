@@ -11,11 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
 
         $this->call(AuthorTableSeeder::class);
         $this->call(BookTableSeeder::class);
         $this->call(ScoreTableSeeder::class);
+        $this->call(UserTableSeeder::class);
 
         //Autre seeders, ici c'est le fichier qui etablie l'ordres des seeders(creation de fausse donnée)
     }
